@@ -28,7 +28,11 @@ h3{
 }
 span{
     font-size: 12px;
+    color: grey;
+    margin-bottom: 5px;
     
+}p{
+    margin: 23px 0;
 }
 
 @media screen and (max-width:750px){

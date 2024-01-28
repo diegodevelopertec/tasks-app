@@ -1,7 +1,7 @@
 
 export default {
-    primaryColor:'#3B3486',
-   secondaryColor: '#864AF9',
+    primaryColor:'#720455',
+   secondaryColor: '#65B741',
     fontSize: '16px',
   
 }

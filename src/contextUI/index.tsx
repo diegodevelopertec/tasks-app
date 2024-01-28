@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState,useContext } from "react";
+import { ReactNode, createContext, useState,useContext, useEffect } from "react";
 
 
 type Props={
@@ -34,6 +34,20 @@ export const ContextUIProvider=({children}:Props)=>{
     const [stateModal,handleStateModal]=useState<boolean>(false)
     const [stateMenuMobile,handleStateMenuMobile]=useState<boolean>(false)
     const [globalTheme,handleGlobalTheme]=useState<'dark' | 'light'>('light')
+
+
+    useEffect(()=>{
+       localStorage.setItem('theme',JSON.stringify(globalTheme) as string)
+    },[globalTheme])
+
+useEffect(()=>{
+    const storageTheme=localStorage.getItem('theme')
+    if(storageTheme){
+        const storageThemeParsed=JSON.parse(storageTheme as string)
+        handleGlobalTheme(storageThemeParsed)
+    }
+},[])
+
 
 const values={
     stateModal,handleStateModal,

@@ -28,8 +28,13 @@ box-shadow: 0 0 22px #000;
     nav{
         a{
             font-size: 18px;
+            transition: all ease .3s;
             color: #fff;
             margin:0 12px;
+            &:hover{
+                color: ${SystemDesign.secondaryColor};
+                text-decoration: underline;
+            }
         }
     }
 }

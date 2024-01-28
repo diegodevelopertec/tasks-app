@@ -14,6 +14,34 @@ h2{
     color: grey;
 }
 
+.cx-top{
+  display: flex;
+  padding: 0 50px;
+  justify-content: space-around;
+    button{
+        border: none;
+        background-color: transparent;
+        color: grey;
+        font-family: 'Lato', sans-serif;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        transition: all ease 0.3s;
+        .svg{
+          stroke: grey;
+          height: 25px;
+          margin-right: 7px;
+        }
+
+      &:hover{
+        color: ${SystemDesign.primaryColor};
+        .svg{
+          stroke:${SystemDesign.primaryColor}
+        }
+      }
+    }
+}
+
 .notes-box{
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -114,11 +142,13 @@ box-shadow: 0 0 20px #000;
 
 @media screen and (max-width:690px){
   width:  ${props=>props.activeFormNote ? '100vw':'0'};
-  top: 0vh;
-
+  top:${props=>props.activeFormNote ? '0':'100vh'};
+  .header{
+   margin: 14px 0;
+  }
 }
 @media screen and (min-width:750px){
-  width:  ${props=>props.activeFormNote ? '60vw':'0'};
+  width:  ${props=>props.activeFormNote ? '38vw':'0'};
   top: 0vh;
 
 }

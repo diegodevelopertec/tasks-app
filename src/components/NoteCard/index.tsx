@@ -1,32 +1,31 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Box } from "./style"
 import { useContextUI } from "../../contextUI"
 import Edit from "../../contextUI/svgs/Edit"
 import Lixeira from "../../contextUI/svgs/lixeira"
+import { useContextApp } from "../../context"
+import { noteType } from "../../types/notes"
 
-type noteType={
-    id:number,
-    title:string,
-    text:string,
-    date:string
-}
 
 type props={
     note:noteType,
-    onClickEdite:()=>void
+    onClickEdite:()=>void,
+   
 }
 export default ({note,onClickEdite}:props)=>{
+      const {globalTheme}=useContextUI()
+      const {deleteNote}=useContextApp()
 
 
-    const {globalTheme}=useContextUI()
+
     return <Box bgTheme={globalTheme}>
         <div className="top">
             <div className="btns">
                <span onClick={onClickEdite}> <Edit /> </span>
-               <span> <Lixeira /></span>
+               <span onClick={()=>deleteNote(note.id)}> <Lixeira /></span>
             </div>
-          <h3>criada em {note.title}</h3>
-          <span>{note.date}</span>
+          <h3>{note.title}</h3>
+          <span> criada em  {note.date}</span>
         </div>
         <p>{note.text}</p>
     </Box>

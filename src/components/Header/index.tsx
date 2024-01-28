@@ -24,7 +24,7 @@ export default ()=>{
             <div className="links">
                 <Link to={'/register'} onClick={()=>handleStateMenuMobile(false)}>Criar conta</Link>
                 <Link to={'/login'} onClick={()=>handleStateMenuMobile(false)}>Entrar</Link>
-                <Link to={'/tarefas'} onClick={()=>handleStateMenuMobile(false)}>tarefas</Link>
+                <Link to={'/anotações'} onClick={()=>handleStateMenuMobile(false)}>anotações</Link>
             </div>
         </nav>
 
